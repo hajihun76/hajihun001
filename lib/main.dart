@@ -13,8 +13,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'GmarketSansOTF',
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      builder: (context, child) => MediaQuery(
+	      data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+	      child: child!,
+	    ),
     );
   }
 }
@@ -50,11 +55,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              '니 몇번 쳐 눌렀누?:',
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 40),
             ),
           ],
         ),
